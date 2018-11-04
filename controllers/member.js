@@ -69,14 +69,13 @@ function saveMember(req, res){
             console.log("Se guardó la foto");
             console.log(req.body);
 
-
-
+            //----coment!
             res.send({
                 message: "Se guardó la foto",
                 photoStored
             });
 
-            let newMember = {
+            /* let newMember = {
                 name: req.body.name,
                 profession: req.body.profession,
                 email: req.body.profession,
@@ -100,13 +99,39 @@ function saveMember(req, res){
                     });
                 }
             });
-            
+             */
         }else{
             return res.status(500).send({
                 message: `Error al salvar la imagen del nuevo miebro en la base de datos: ${err}`
             });
         };
     });
+
+    let newMember = {
+                name: req.body.name,
+                profession: req.body.profession,
+                email: req.body.profession,
+                contactNumber: req.body.contactNumber,
+                wspNumber: req.body.wspNumber,
+                contactFacebook: req.body.contactFacebook,
+                photo: newPhoto.path
+            }
+
+            let member = new Member(newMember);
+
+            member.save((err, memberStored)=>{
+                if(!err){
+                    res.status(200).send({
+                        message: "Miembro agregado con exito",
+                        memberStored
+                    })
+                }else{
+                    res.status(500).send({
+                        message: `Error al guardar nuevo miembro a la base de datos: ${err}`
+                    });
+                }
+            });
+
 }
 
 function deleteMember(req,res){
