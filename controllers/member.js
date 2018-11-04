@@ -1,4 +1,7 @@
 'use strict'
+//libs
+const fs = require('fs');
+
 //models
 const Member = require('../models/Members');
 const Photo = require('../models/Images');
