@@ -9,7 +9,7 @@ const app = require('./app');
 const config = require('./config');
 
 /* -------------------------- conect database Mongo -------------------------------- */
-mongoose.connect('mongodb://<johnathanmb95>:<johnathanmb95>@ds161099.mlab.com:61099/econtacts-database',(err, res)=>{
+mongoose.connect('mongodb://johnathanmb95:johnathanmb95@ds161099.mlab.com:61099/econtacts-database',(err, res)=>{
     if(err) {
         return console.log("Error al conectar a la base de datos");
     }
