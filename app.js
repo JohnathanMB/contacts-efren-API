@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(formidable.parse({keepExtensions: true}));
-app.use('/static', express.static("https://e-contacts-api.herokuapp.com/" + '/public'));
+app.use('/static', express.static(__dirname + './public'));
 app.use('/api', api);
 
 
