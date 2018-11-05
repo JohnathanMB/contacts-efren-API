@@ -87,6 +87,5 @@ module.exports = {
     getPhotos,
     savePhoto,
     deletePhoto,
-    updatePhoto,
-    getPhotoPath
+    updatePhoto
 }
