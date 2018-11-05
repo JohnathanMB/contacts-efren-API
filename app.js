@@ -10,8 +10,7 @@ const serve   = require('express-static');
 //routes
 const api = require('./routes/routes');
 
-/* app.use('static',express.static('../public')); */
-app.use(serve(__dirname + '/public'));
+app.use(serve('public'));
 
 app.use(bodyParser.urlencoded({
     extended:false
