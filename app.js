@@ -14,7 +14,14 @@ const api = require('./routes/routes');
 
 /* app.use('static',express.static('../public')); */
 /* app.use(serve(__dirname + '/public')); */
-app.use(express.static(__dirname+'/public')); 
+/* app.use(express.static(__dirname+'/public'));  */
+app.use(express.static(path.join(__dirname, '../app'), { maxAge: 86400000 }))
+
+app.get('/im', function(req, res) {
+    console.log(__dirname);
+    res.sendfile(path.join(__dirname, '../app/public/images/profiles/prueba15-profile.jpg'));
+  });
+  
 
 /*-----NNNNNNNNNNNNNN--------*/
 /* app.get('/im',(req,res)=>{
