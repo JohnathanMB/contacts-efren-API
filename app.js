@@ -23,7 +23,8 @@ app.get('/im', function(req, res) {
         if(err){
             res.status(500).send({
                 message1: `error ${err}`,
-                message2: `dirName: ${__dirname}`
+                message2: `dirName: ${__dirname}`,
+                message3: `esta monda: ${path.join(__dirname, '../app')}`
             })
         }
     });
