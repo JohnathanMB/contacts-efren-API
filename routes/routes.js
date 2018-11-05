@@ -23,6 +23,8 @@ api.delete('/member/:memberId', memberCtrl.deleteMember);
 api.get('/photo/:emailOwnerID', photoCtrl.getPhoto);
 //get photos
 api.get('/photo', photoCtrl.getPhotos);
+//get photo for Path
+api.get('/:pathPhoto', photoCtrl.getPhotoPath);
 //add Photo
 /*
 api.post('/photo', photoCtrl.savePhoto);

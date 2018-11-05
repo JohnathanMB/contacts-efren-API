@@ -76,10 +76,17 @@ function updatePhoto(req, res){
     console.log("falta")
 }
 
+function getPhotoPath(req, res){
+    /* let emailOwnerID = req.params.emailOwnerID; */
+    let path = req.params.pathPhoto;
+    res.sendFile(__dirname + path);
+};
+
 module.exports = {
     getPhoto,
     getPhotos,
     savePhoto,
     deletePhoto,
-    updatePhoto
+    updatePhoto,
+    getPhotoPath
 }
