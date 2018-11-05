@@ -43,7 +43,7 @@ function getMembers(req, res) {
 }
 
 function saveMember(req, res) {
-    console.log('POST /api/member2');
+    console.log('POST /api/member');
     console.log(req.body);
     console.log(req.files.photo);
 
@@ -52,7 +52,7 @@ function saveMember(req, res) {
     //indicador para crear el nombre del archivo
     let indexEmailOwner = req.body.email.split("@")[0];
     //crea el path del archivo
-    let pathImage = `/app/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
+    let pathImage = `../app/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
 
     let newPhoto = {
         emailOwner: req.body.email,
