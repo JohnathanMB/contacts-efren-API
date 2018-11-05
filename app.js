@@ -7,11 +7,20 @@ const formidable = require('express-form-data');
 const fs = require('fs');
 const serve   = require('express-static');
 
+const path = require('path');
+
 //routes
 const api = require('./routes/routes');
 
 /* app.use('static',express.static('../public')); */
 /* app.use(serve(__dirname + '/public')); */
+app.use(express.static('public'));
+
+/*-----NNNNNNNNNNNNNN--------*/
+/* app.get('/im',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/images/carlos-profile-photo.jpg'));
+}) */
+/*-----NNNNNNNNNNNNNN--------*/
 
 app.use(bodyParser.urlencoded({
     extended:false
