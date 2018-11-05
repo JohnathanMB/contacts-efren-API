@@ -1,6 +1,7 @@
 'use strict'
 //libs
-const fs = require('fs');
+//const fs = require('fs');
+var fs = require('fs.extra');
 
 //models
 const Member = require('../models/Members');
@@ -59,19 +60,18 @@ function saveMember(req, res) {
         extension: extension,
         path: pathImage
     }
-    //cambia ubicación
-    fs.rename(req.files.photo.path, pathImage);
+    
     let photo = new Photo(newPhoto);
     photo.save((err, photoStored) => {
         if (!err) {
             //cambia ubicación
-            /* fs.rename(req.files.photo.path, pathImage, (err)=>{
+            fs.copy(req.files.photo.path, pathImage, (err)=>{
                 if(!err){
                     console.log("Se ha guardado la imagen exitosamente en el servidor")
                 }else{
                     console.log(`Problemas al guardar la imagen. error: ${err}`)
                 }
-            }); */
+            });
             //retorna path
             console.log("Se guardó la foto");
             console.log(req.body);
