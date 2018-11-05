@@ -52,25 +52,26 @@ function saveMember(req, res) {
     //indicador para crear el nombre del archivo
     let indexEmailOwner = req.body.email.split("@")[0];
     //crea el path del archivo
-    let pathImage = `../app/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
+    let pathImage = `${__dirname}/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
 
     let newPhoto = {
         emailOwner: req.body.email,
         extension: extension,
         path: pathImage
     }
-
+    //cambia ubicación
+    fs.rename(req.files.photo.path, pathImage);
     let photo = new Photo(newPhoto);
     photo.save((err, photoStored) => {
         if (!err) {
             //cambia ubicación
-            fs.rename(req.files.photo.path, pathImage, (err)=>{
+            /* fs.rename(req.files.photo.path, pathImage, (err)=>{
                 if(!err){
                     console.log("Se ha guardado la imagen exitosamente en el servidor")
                 }else{
                     console.log(`Problemas al guardar la imagen. error: ${err}`)
                 }
-            });
+            }); */
             //retorna path
             console.log("Se guardó la foto");
             console.log(req.body);
