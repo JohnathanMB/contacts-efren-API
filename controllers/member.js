@@ -52,7 +52,7 @@ function saveMember(req, res){
     //indicador para crear el nombre del archivo
     let indexEmailOwner = req.body.email.split("@")[0];
     //crea el path del archivo
-    let pathImage = `app/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
+    let pathImage = `/app/public/images/profiles/${indexEmailOwner}-profile.${extension}`;
 
     let newPhoto = {
         emailOwner: req.body.email,
