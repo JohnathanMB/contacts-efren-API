@@ -10,14 +10,15 @@ const serve   = require('express-static');
 //routes
 const api = require('./routes/routes');
 
-app.use(serve('public'));
+/* app.use('static',express.static('../public')); */
+/* app.use(serve(__dirname + '/public')); */
 
 app.use(bodyParser.urlencoded({
     extended:false
 }));
 app.use(bodyParser.json());
 app.use(formidable.parse({keepExtensions: true}));
-/* app.use('/static', express.static(__dirname + './public')); */
+
 app.use('/api', api);
 
 
