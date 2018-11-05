@@ -110,7 +110,7 @@ function saveMember(req, res){
     let newMember = {
                 name: req.body.name,
                 profession: req.body.profession,
-                email: req.body.profession,
+                email: req.body.email,
                 contactNumber: req.body.contactNumber,
                 wspNumber: req.body.wspNumber,
                 contactFacebook: req.body.contactFacebook,
