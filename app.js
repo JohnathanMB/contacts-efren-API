@@ -19,7 +19,14 @@ app.use(express.static(path.join(__dirname, '../app'), { maxAge: 86400000 }))
 
 app.get('/im', function(req, res) {
     console.log(__dirname);
-    res.sendfile(path.join(__dirname, '../app/public/images/profiles/prueba15-profile.jpg'));
+    res.sendfile(path.join(__dirname, '../app/public/images/profiles/prueba15-profile.jpg'), (err)=>{
+        if(err){
+            res.status(500).send({
+                message1: `error ${err}`,
+                message2: `dirName: ${__dirname}`
+            })
+        }
+    });
   });
   
 
