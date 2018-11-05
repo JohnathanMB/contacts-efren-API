@@ -14,7 +14,8 @@ const api = require('./routes/routes');
 
 /* app.use('static',express.static('../public')); */
 /* app.use(serve(__dirname + '/public')); */
-app.use(express.static('public'));
+/* app.use(express.static('public')); */
+app.use(express.static(path.join(__dirname, '../app'), { maxAge: 86400000 }));
 
 /*-----NNNNNNNNNNNNNN--------*/
 /* app.get('/im',(req,res)=>{
