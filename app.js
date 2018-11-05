@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(formidable.parse({keepExtensions: true}));
+app.use(express.static('public'));
 app.use('/api', api);
 
 
