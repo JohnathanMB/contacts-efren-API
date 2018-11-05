@@ -14,7 +14,7 @@ const api = require('./routes/routes');
 
 /* app.use('static',express.static('../public')); */
 /* app.use(serve(__dirname + '/public')); */
-app.use(express.static('public')); 
+app.use(express.static(__dirname+'/public')); 
 
 /*-----NNNNNNNNNNNNNN--------*/
 /* app.get('/im',(req,res)=>{
