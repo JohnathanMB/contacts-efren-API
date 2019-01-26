@@ -1,7 +1,7 @@
 'use strict'
 //libs
-//const fs = require('fs');
-var fs = require('fs.extra');
+const fs = require('fs');
+/* var fs = require('fs.extra'); */
 
 //models
 const Member = require('../models/Members');
@@ -65,7 +65,7 @@ function saveMember(req, res) {
     photo.save((err, photoStored) => {
         if (!err) {
             //cambia ubicación
-            fs.copy(req.files.photo.path, pathImage, (err)=>{
+            fs.rename(req.files.photo.path, pathImage, (err)=>{
                 if(!err){
                     console.log("Se ha guardado la imagen exitosamente en el servidor")
                 }else{
