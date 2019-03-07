@@ -6,6 +6,7 @@ const app = express();
 const formidable = require('express-form-data');
 const fs = require('fs');
 const serve   = require('express-static');
+const cors = require('cors');
 
 const path = require('path');
 
@@ -27,7 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(formidable.parse({keepExtensions: true}));
-
+app.use(cors());
 app.use('/api', api);
 
 
